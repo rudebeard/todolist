@@ -1,0 +1,86 @@
+:root{
+  --primary:rgb(234, 64, 164);
+  --business:#3a82ee;
+  --personal:var(var(--primary));
+  --light:#ddd;
+  --dark:#313154;
+  --danger:#ff5b57;
+  --gray:#999;
+  --shadow:0 1px 3px rgba(17, 15, 15, 0.1);
+
+  --business-glow:0px 0px 4px rgba(58,130,238,0.75);
+  --personal-glow:0px 0px 4px rgba(234, 64, 164,0.75);
+}
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'roboto',sans-serif;
+}
+input:not([type="radio"]):not([type="checkbox"]),button{
+  appearance: none;
+  border: none;
+  outline: none;
+  background:none;
+  cursor: initial;
+}
+body{
+  background:var(--light);
+  color:var(--dark)
+}
+
+section{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+h3{
+  color:var(--dark);
+  font-size: 1rem;
+  font-weight:800;
+  margin-bottom: 1rem;
+}
+h4{
+  color:var(--gray);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.greeting .title{
+  display: flex;
+}
+.greeting .title input{
+ margin-left: 0.8rem;
+ flex:1 1 0%; 
+}
+.greeting .title,
+.greeting .title input{
+  color: var(--dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.create-todo input[type="text"]{
+  display: block;
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 1rem 1.2rem;
+  color: var(--dark);
+  background-color: #fff;
+  border-radius: 0.8rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.4rem;
+}
+
+.create-todo .options{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+
+
+
+
