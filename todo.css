@@ -1,7 +1,7 @@
 :root{
   --primary:rgb(234, 64, 164);
   --business:#3a82ee;
-  --personal:var(var(--primary));
+  --personal:#555;
   --light:#ddd;
   --dark:#313154;
   --danger:#ff5b57;
@@ -25,8 +25,8 @@ input:not([type="radio"]):not([type="checkbox"]),button{
   cursor: initial;
 }
 body{
-  background:var(--light);
-  color:var(--dark)
+  background-image: url('https://www.pexels.com/search/ford%20mustang/');
+  color:var(--dark);
 }
 
 section{
@@ -78,9 +78,152 @@ h4{
 .create-todo .options{
   display: grid;
   grid-template-columns: repeat(2,1fr);
+  grid-gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+.create-todo .options label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+  display: none;
+}
+
+.bubble{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  border: 3px solid var(--business);
+  box-shadow: var(--business-glow);
+}
+
+.bubble.personal{
+  border-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+.bubble::after{
+ content: "";
+ display: block;
+ opacity: 0;
+ width: 0;
+ height: 0;
+ background-color: var(--business);
+ box-shadow: var(--business-glow);
+ border-radius: 50%;
+ transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after{
+  background-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after{
+  width: 10px;
+  height: 10px;
+  opacity:1;
+}
+
+.create-todo .options label div{
+  color: var(--danger);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.create-todo input[type="submit"]{
+  display: block;
+  width: 100%;
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: rgb(247, 39, 229);
+  color: #fff;
+  border-radius: 15px;
+  text-shadow: 2px 2px 5px #313154;
+  font-style: oblique;
+  box-shadow: var(--dark);
+  padding:1rem 1.5rem;
+  cursor: pointer;
+  transition:0.2s ease-in-out;
+}
+
+.create-todo input[type="submit"]:hover{
+  opacity:0.78;
+}
+
+.todo-list .list{
+  margin: 1rem 0;
+}
+
+.todo-list .todo-item{
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  /* justify-content: space-between; */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.todo-item label{
+  display: block;
+  margin-right: 18px;
+  cursor: pointer;
+}
+.todo-item .todo-content{
+  flex: 1 1 0%;
+}
+
+.todo-item .todo-content input{
+  color: var(--dark);
+  font-size: 1.15rem;
+  text-transform: uppercase;
 }
 
 
+.todo-item .actions{
+  display: flex;
+  align-items: center;
+}
 
+.todo-item .actions button{
+  display: block;
+  padding: 0 1.2rem;
+  border-radius:0.8rem; 
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.todo-item .actions button:hover{
+  opacity: 0.8;
+}
 
+.todo-item .actions .edit{
+  margin-right: 0.5rem;
+  background-color:rgb(247, 39, 229);
+}
 
+.todo-item .actions .delete{
+  margin-right: 0.5rem;
+  background-color:var(--danger);
+}
+
+.todo-item.done .todo-content input{
+  text-decoration: line-through;
+}
